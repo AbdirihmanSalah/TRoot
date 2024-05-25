@@ -1,0 +1,60 @@
+#!/bin/bash
+#created by Abdihman salah
+#join us telegram channel
+#@Puntland_cyber_force_G1
+#colors uses
+r="\e[91m"
+br="\e[101m"
+b="\e[34m"
+bb="\e[44m"
+y="\e[93m"
+by="\e[43m"
+g="\e[92m"
+bg="\e[42m"
+w="\e[97m"
+end="\e[0m"
+#font
+ul="\e[4m"
+bd="\e[1m"
+#clear screen
+clear
+
+#dialog
+
+dialog --title "Starting TRoot" --yes-label "Yes" --no-label "No" --yesno "Do You Want To Start Root" 10 35
+start=$?
+if [ "$start" = 0 ]; then
+#logo uses ubuntu logo
+#now checking if jp2a package installed or not, jubin jp2a pkg
+	if ! hash jp2a > /dev/null 2>&1; then
+#if not installed installing, hadan la dajin jp2a wuu dagaya
+	apt install j2pa
+	else
+# else installed going, hadii kle la dajiyay ficilka dhici lahaa
+	clear
+	sleep 1
+{
+    for ((i = 0 ; i <= 100 ; i+=10)); do
+	sleep 0.1
+	echo $i
+   done
+} | dialog --gauge "starting...   (fadlan sug..)" 6 40 0
+sleep 1
+	clear
+	cd /data/data/com.termux/files/usr/bin/
+	jp2a --colors --background=light ubuntu.png
+	echo -e "			   $r$bd Welcome Ubuntu Root$end"
+	proot-distro login ubuntu
+	fi
+else
+	clear
+	echo -e "     $r You are cancelled!"
+	echo
+echo
+echo
+	echo -e " $y$bd      Please Wait To Return Real Termux Screen$end"
+	sleep 2
+	clear
+	login
+	exit
+fi
